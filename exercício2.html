@@ -1,0 +1,85 @@
+<!--(Exe2) Faça um script que sorteie através de uma função, chamada por um botão de
+formulário, 10 números aleatórios entre 0 e 100 e armazene esses 10 números em um
+vetor, calcule e mostre através de funções:
+a) O vetor original dentro de uma tabela com 10 colunas
+b) A soma dos números pares deste vetor
+c) A soma dos números ímpares deste vetor
+OBS: comando para fazer o sorteio Math.round(Math.random()*100), os dados deverão ser
+exibidos dentro de um elemento HTML5 com a propriedade innerHTML.-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Exemplo 4 - Funções tempo</title>
+
+	<style type="text/css">
+		#numero {
+			font-size: 360pt;
+			color: #FF0000;
+		}
+	</style>
+</head>
+<body>
+	<form name="exemplo" method="GET" action="">
+		<button type="button" id="sortear" name="sortear">Sortear</button>
+		<button type="button" id="armazenarDados" name="armazenarDados">Armazenar dados</button>
+		<button type="button" id="calcular" name="calcular">Calcular</button>
+	</form>
+	<div id="construcaoTabela"></div>
+	<div id="saida"></div>
+</body>
+<script>
+    let sortear = [];
+    let armazenarDados = [];
+    let calcular = [];
+    function cadastrar(valorSortear, valorArmazenarDados, valorCalcular){
+    idade.push(valorSortear);
+    peso.push(valorArmazenarDados);
+    altura.push(valorCalcular);
+    document.querySelector("#inputSortear").value = "";
+    document.querySelector("#inputArmazenarDados").value = "";
+    document.querySelector("#inputcalcular").value = "";
+}
+let btnCadastrar = document.querySelector("#cadastrar");
+btnCadastrar.addEventListener("click", function(){
+    let valorSortear = Number(document.querySelector("#inputsortear").value);
+    let valorArmazenarDados = Number(document.querySelector("#inputarmazenarDados").value);
+    let valorCalcular = Number(document.querySelector("#inputcalcular").value);
+    cadastrar(valorSortear, valorArmazenarDados, valorCalcular);
+    console.log("valor do arrey",sortear, armazenarDados, calcular);
+});
+let btnCalcular = document.querySelector("#calcular");
+        btnCalcular.addEventListener("click", function(){
+    let tabela = document.querySelector("#construcaoTabela");
+        let quantidadeLinha = '';
+            for (let i = 0; i < sortear.length; i++){
+              let sortearLinha = `<td>${sortear[i]}</td>`;
+              let armazenarDadosLinha = `<td>${armazenarDados[i]}</td>`;
+              let calcularLinha = `<td>${calcular[i]}</td>`;
+              let valorLinha = sortearLinha + armazenarDadosLinha + calcularLinha;
+              console.log("valorLinha", valorLinha);
+              quantidadeLinha += `<tr>${valorLinha}</tr>`;
+              console.log("quantidade", quantidadeLinha);
+            } 
+            tabela.innerHTML = `<table id="tabela"><tr><th>Idade</th><th>Peso</th><th>Altura</th>${quantidadeLinha}</table>`;
+            let saida = document.getElementById("saida");
+            let especificacoes = 0;
+            for (let i = 0; i < peso.length; i++){
+                if (peso[i] >= 90){ 
+                    if (altura[i] > 150)
+                    especificacoes [0]
+                    especificacoes ++;
+                    console.log('acima: ', especificacoes);
+                }
+            }
+            saida.innerHTML = `<p>Pessoas com peso superior ou igual a 90 quilos e acima de 1,50 metros de altura: ${especificacoes}</h2>`
+        });
+</script>
+
+<body>
+
+</body>
+
+</html>

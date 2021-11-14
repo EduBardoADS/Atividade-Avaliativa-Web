@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+<style>
+button{
+    font-style: oblique;
+    font-size: 5;
+    border:1px solid black ;
+    background-color: rgba(0, 153, 255, 0.952);
+} 
+form{
+    font-style: oblique;
+    font-size: 5;
+    border:5px solid black ;
+    background-color: aquamarine;
+    margin-right:1200px;    
+}    
+table, th, td{
+  border:1px solid black;
+  background-color: aquamarine;
+  font-size: 5;
+  font-style: oblique;
+}
+</style>
+</head>
+<body>
+<form name="exemplo" method="GET" action="">
+    <label>Idade:</label>
+    <input type="text" id="inputIdade" name="inputIdade">
+    <br>
+    <label>Peso:</label>
+    <input type="text" id="inputPeso" name="inputPeso">
+    <br>
+    <label>Altura:</label>
+    <input type="text" id="inputAltura" name="inputAltura">
+    <br>
+    <button type="button" id="cadastrar" name="cadastrar">Cadastrar</button>
+    <button type="button" id="calcular" name="calcular">Calcular</button>
+</form>
+<div id="construcaoTabela"></div>
+<div id="saida"></div>
+</body>
+
+<script>
+    let idade = [];
+    let peso = [];
+    let altura = [];
+    function cadastrar(valorIdade, valorPeso, valorAltura){
+    idade.push(valorIdade);
+    peso.push(valorPeso);
+    altura.push(valorAltura);
+    document.querySelector("#inputIdade").value = "";
+    document.querySelector("#inputPeso").value = "";
+    document.querySelector("#inputAltura").value = "";
+}
+let btnCadastrar = document.querySelector("#cadastrar");
+btnCadastrar.addEventListener("click", function(){
+    let valorIdade = Number(document.querySelector("#inputIdade").value);
+    let valorPeso = Number(document.querySelector("#inputPeso").value);
+    let valorAltura = Number(document.querySelector("#inputAltura").value);
+    cadastrar(valorIdade, valorPeso, valorAltura);
+    console.log("valor do arrey",idade, peso, altura);
+});
+let btnCalcular = document.querySelector("#calcular");
+        btnCalcular.addEventListener("click", function(){
+    let tabela = document.querySelector("#construcaoTabela");
+        let quantidadeLinha = '';
+            for (let i = 0; i < idade.length; i++){
+              let idadeLinha = `<td>${idade[i]}</td>`;
+              let pesoLinha = `<td>${peso[i]}</td>`;
+              let alturaLinha = `<td>${altura[i]}</td>`;
+              let valorLinha = idadeLinha + pesoLinha + alturaLinha
+              console.log("valorLinha", valorLinha);
+              quantidadeLinha += `<tr>${valorLinha}</tr>`;
+              console.log("quantidade", quantidadeLinha);
+            } 
+            tabela.innerHTML = `<table id="tabela"><tr><th>Idade</th><th>Peso</th><th>Altura</th>${quantidadeLinha}</table>`;
+            let saida = document.getElementById("saida");
+            let especificacoes = 0;
+            for (let i = 0; i < peso.length; i++){
+                if (peso[i] >= 90){ 
+                    if (altura[i] > 150)
+                    especificacoes [0]
+                    especificacoes ++;
+                    console.log('acima: ', especificacoes);
+                }
+            }
+            saida.innerHTML = `<p>Pessoas com peso superior ou igual a 90 quilos e acima de 1,50 metros de altura: ${especificacoes}</h2>`
+        });
+</script>
+</head>
+</html>
